@@ -1,0 +1,13 @@
+# Menggunakan image resmi PostgreSQL
+FROM postgres:13
+
+# Mengatur variabel lingkungan untuk PostgreSQL
+ENV POSTGRES_DB=air
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=123
+
+# if you want to check the result on local
+EXPOSE 5432
+
+# Menyalin file SQL untuk membuat database dan tabel
+COPY init.sql /docker-entrypoint-initdb.d/
